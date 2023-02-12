@@ -1,0 +1,33 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+   
+}
+.invalid
+{
+    color: red;
+}
+.buttons{
+    margin-top: 20px;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+}
+button{
+    margin-left: 40px;
+    cursor: pointer;
+}
+.inputs{
+    margin-top: 20px;
+}
+/* input{
+    position: fixed;
+} */

@@ -1,0 +1,30 @@
+<div>
+    <!-- <div *ngFor="let data of getdetails;"> -->
+        <h3 align="center">Form Details</h3>
+        <div class="display">
+            <div class="details">
+                <h4><i>User Details</i></h4>
+                <span><span>firstname : </span><span>{{gdata.firstname}}</span></span>
+                <span><span>lastname : </span><span>{{gdata.lastname}}</span></span>
+                <span><span>age : </span><span>{{gdata.age}}</span></span>
+                <span><span>dateofbirth : </span><span>{{gdata.dateofbirth}}</span></span>
+                <span><span>username : </span><span>{{gdata.username}}</span></span>
+                <span><span>lastname : </span><span>{{gdata.lastname}}</span></span>
+                <span><span>email : </span><span>{{gdata.email}}</span></span>
+                <span><span>phonenumber : </span><span>{{gdata.phonenumber}}</span></span>
+            </div>
+            <div class="additionaldata">
+                <h4><i>Additional Info</i></h4>
+                <!-- <div align="end"><button (click)="activateInput($event)">+</button></div> -->
+                <div *ngFor="let additional of gdata.additionaldata , let i = index">
+                    <div *ngIf="additional !='' and gdata.additionaldataInfo[i]!=''">
+                        <span ><span> {{additional}} : </span><span>{{gdata.additionaldataInfo[i]}}</span></span>
+                    </div>
+                </div>
+                <!-- <div *ngIf="activate?true:false"><input type="text" (input)="getInput($event)"><button (click)="addData()">add</button></div> -->
+                
+            </div>
+
+        </div>
+    <!-- </div> -->
+</div>

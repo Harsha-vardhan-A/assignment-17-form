@@ -1,0 +1,27 @@
+.display{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    border: 2px solid black;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    width: 50%;
+    padding: 20px;
+}
+.additionaldata{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    width: 50%;
+    padding: 20px;
+    border-left: 2px solid black;
+}
+h4{
+    align-self: center;
+}

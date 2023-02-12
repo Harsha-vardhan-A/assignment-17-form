@@ -1,0 +1,152 @@
+<form [formGroup]="registration" class="form" (submit)="onSubmit()">
+    <h1><i><b>Registration</b></i></h1>
+    <div class="inputs">
+      <label>First Name : </label><input formControlName="firstname" type="text" placeholder="firstname">
+      <div *ngIf="firstname?.invalid && (firstname?.dirty || firstname?.touched)" class="invalid">
+        <div *ngIf="firstname?.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="firstname?.errors?.['minlength']">
+          This field must have at least 3 character.
+        </div>
+        <div *ngIf="firstname?.errors?.['maxlength']">
+          This field must have at most 250 characters.
+        </div>
+        <div *ngIf="firstname?.errors?.['pattern']">
+          Do not use numbers and special character.
+        </div>
+      </div>
+    </div>
+    <div class="inputs">
+      <label>Last Name : </label><input formControlName="lastname"  type="text" placeholder="lastname">
+      <div *ngIf="lastname?.invalid && (lastname?.dirty || lastname?.touched)" class="invalid">
+        <div *ngIf="lastname?.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="lastname?.errors?.['minlength']">
+          This field must have at least 3 character.
+        </div>
+        <div *ngIf="lastname?.errors?.['maxlength']">
+          This field must have at most 250 characters.
+        </div>
+        <div *ngIf="lastname?.errors?.['pattern']">
+          Do not use numbers and special character.
+        </div>
+      </div>
+    </div>
+    <div class="inputs">
+      <label>Age : </label><input formControlName="age"  type="number" placeholder="age">
+      <div *ngIf="age?.invalid && (age?.dirty || age?.touched)" class="invalid">
+        <div *ngIf="age?.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="age?.errors?.['min']">
+          Age should be greater than 0 years
+        </div>
+        <div *ngIf="age?.errors?.['max']">
+          Age should be less than 999 years.
+        </div>
+        <div *ngIf="age?.errors?.['pattern']">
+          age should be in number.
+        </div>
+      </div>
+    </div>
+    <div class="inputs">
+      <label>DateOfBirth : </label><input formControlName="dateofbirth"  type="date" placeholder="age">
+      <div *ngIf="dateofbirth?.invalid && (dateofbirth?.dirty || dateofbirth?.touched)" class="invalid">
+        <div *ngIf="dateofbirth?.errors?.['required']">
+          This field is required.
+        </div>
+      </div>
+    </div>
+    <div class="inputs">
+      <label>User  Name : </label><input formControlName="username"  type="text" placeholder="username">
+      <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="invalid">
+        <div *ngIf="username?.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="username?.errors?.['minlength']">
+          This field must have at least 3 character.
+        </div>
+        <!-- <div *ngIf="username?.errors?.['maxlength']">
+          This field must have at most 250 characters.
+        </div> -->
+        <div *ngIf="username?.errors?.['pattern']">
+          First letter should not be a special character and numbers.
+        </div>
+      </div>
+    </div>
+    <div class="inputs">
+      <label>email : </label><input formControlName="email"  type="email" placeholder="email">
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="invalid">
+        <div *ngIf="email?.errors?.['required']">
+          This field is required.
+        </div>
+        <!-- <div *ngIf="email?.errors?.['minlength']">
+          This field must have at least 10 character.
+        </div> -->
+        <!-- <div *ngIf="email?.errors?.['maxlength']">
+          This field must have at most 256 characters.
+        </div> -->
+        <div *ngIf="email?.errors?.['pattern']">
+          invalid email (ex:- abc123@gmail.com).
+        </div>
+      </div>
+    </div>
+    <div class="inputs">
+      <label>Phone number : </label><input formControlName="phonenumber"  type="number" placeholder="phonenumber">
+      <div *ngIf="phonenumber?.invalid && (phonenumber?.dirty || phonenumber?.touched)" class="invalid">
+        <div *ngIf="phonenumber?.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="phonenumber?.errors?.['max']">
+          phonenumber must have 10 digits.
+        </div>
+        <div *ngIf="phonenumber?.errors?.['min']">
+          phonenumber must have 10 digits.
+        </div>
+      </div>
+    </div>
+    <!-- <div class="inputs">
+      <label>Additional Data : </label><input type="text" formControlName="additionaldata" placeholder="additionaldata">
+      <div *ngIf="phonenumber?.invalid && (additionaldata?.dirty || additionaldata?.touched)" class="invalid">
+        <div *ngIf="additionaldata?.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="additionaldata?.errors?.['pattern']">
+          Additional data should not start with numbers<br> and special characters.
+        </div>
+      </div>
+      
+    </div> -->
+    <!-- <div class="inputs">
+      <app-child (data)="onData($event)"></app-child>
+        <div *ngIf="activate?true:false"><app-child (data)="onData($event)"></app-child>
+        <button (click)="addData()">add</button>
+      </div>
+      <button>Add</button>
+      <div><button (click)="activateInput($event)" type="button">+</button></div>
+    </div> -->
+    <!-- <div>
+      <label>Entered Additonal Data : </label><span>{{childdata}}</span>
+    </div> -->
+    <div *ngFor="let index of allComp" class="inputs">
+      <label>Additional Data : </label><input type="text" formControlName="additionaldata" placeholder="additionaldata" (input)="additionalData($event,index)">
+      <div *ngIf="additionaldata?.invalid && (additionaldata?.dirty || additionaldata?.touched)" class="invalid">
+        <div *ngIf="additionaldata?.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="additionaldata?.errors?.['pattern']">
+          Additional data should not start with numbers<br> and special characters.
+        </div>
+      </div>
+      <app-child (data)="onData($event ,index)"></app-child>
+      <label>Entered Additonal Data : </label><span>{{allData[index]}}</span>
+    </div>
+    <!-- <div class="inputs"><button (click)="activateInput($event)" type="button">+</button></div> -->
+    <div class="buttons">
+      <button (click)="activateInput($event)" type="button">Add</button>
+      <button type="reset">Reset</button>
+      <button type="submit" [disabled]="registration.invalid?true:false">Submit</button>
+    </div>
+</form>

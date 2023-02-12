@@ -1,0 +1,14 @@
+<form [formGroup]="child">
+    <div class="selectinputs">
+        <select  formControlName="selecttype" (change)="changeType($event)">
+            <option *ngFor="let typeoftext of alltypes" [ngValue]="typeoftext">{{typeoftext}}</option>
+        </select>
+        <input type="text" formControlName="inputtype" (input)="inputData()" placeholder="enter your data">
+        <!-- <div *ngIf="activate?true:false"><input type="text" (input)="getInput($event)"><button (click)="addData()">add</button></div> -->
+    </div>
+    <div class="displayerror">
+        <div *ngIf="inputtype?.invalid && (inputtype?.dirty || inputtype?.touched)">
+            <div *ngIf="inputtype?.errors?.['pattern']">Eneter only {{addcomment}}</div>
+        </div>
+    </div>
+</form>
